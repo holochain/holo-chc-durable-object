@@ -1,0 +1,16 @@
+name = "worker"
+workers_dev = true
+main = "dist/index.mjs"
+# account_id = ""
+# route = ""
+
+
+[build]
+command = "npm install && npm run build"
+
+[durable_objects]
+bindings = [{name = "SOURCE_CHAIN", class_name = "SourceChain"}]
+
+[[migrations]]
+tag = "v1" # Should be unique for each entry
+new_classes = ["SourceChain"]
